@@ -1,0 +1,41 @@
+# Foundry
+out/
+cache/
+broadcast/
+
+# Environment / secrets — every dotenv variant, the example is kept
+.env
+.env.*
+!.env.example
+*.env
+*.pem
+*.key
+
+# Transient scratch files
+tmp*
+/tmp/
+scratch*
+
+# Rendered artefacts that do not belong in git (the demo video is a Release asset)
+*.mp4
+*.webm
+*.mov
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+.venv*/
+venv/
+
+# Local harness artefacts. The reports and the agent decision logs are kept: they are the latency evidence.
+runs/anvil-*.log
+runs/keep.log
+runs/run.log
+runs/*.log
+
+# Editor
+.idea/
+.vscode/
+.DS_Store

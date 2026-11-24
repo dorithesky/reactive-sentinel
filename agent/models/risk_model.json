@@ -1,0 +1,81 @@
+{
+  "version": 1,
+  "feature_names": [
+    "price_drop_bps",
+    "ret_short_bps",
+    "liquidity_drop_bps",
+    "sell_pressure_bps",
+    "volatility_bps",
+    "twap_deviation_bps"
+  ],
+  "weights": [
+    -0.27506,
+    -0.915215,
+    -0.309981,
+    -0.17823,
+    2.30088,
+    0.090832
+  ],
+  "bias": -2.185442,
+  "mean": [
+    1320.9482,
+    -359.1074,
+    789.3804,
+    5828.8506,
+    149.1121,
+    1029.5285
+  ],
+  "std": [
+    2246.2041,
+    2129.7253,
+    1371.5773,
+    1870.9493,
+    124.713,
+    2270.0737
+  ],
+  "thresholds": {
+    "watch": 0.4,
+    "defend": 0.65,
+    "critical": 0.85
+  },
+  "metrics": {
+    "auc_train": 0.9621,
+    "auc_test": 0.9613,
+    "positive_rate_test": 0.2358,
+    "bands_test": {
+      "watch": {
+        "threshold": 0.4,
+        "precision": 0.7875,
+        "recall": 0.6678,
+        "flagged": 240
+      },
+      "defend": {
+        "threshold": 0.65,
+        "precision": 0.8429,
+        "recall": 0.6254,
+        "flagged": 210
+      },
+      "critical": {
+        "threshold": 0.85,
+        "precision": 0.9244,
+        "recall": 0.3887,
+        "flagged": 119
+      }
+    }
+  },
+  "metadata": {
+    "trained_at": "2026-11-24T09:33:26+00:00",
+    "seed": 20261124,
+    "samples": 4000,
+    "generator": "constant-product pool; 20% crash (20% of which fail), 22% fakeout, 13% chop, 45% calm",
+    "label": "price falls >= 300 bps within 15 ticks after the decision point",
+    "reason_codes": {
+      "price_drop_bps": "0x82a6df75c22959cf71313eda51e375cb67f1794279d58980e9871db1a4299e23",
+      "ret_short_bps": "0x31253c34a9bc64ac83f4e963d33e7a6f04f05984dffd5d48afd91cbda04c0bb4",
+      "liquidity_drop_bps": "0x594127caca81e581f02f5ae9bcfd5cc45c7fdd8c7008c7d0e3e2f15a1580b771",
+      "sell_pressure_bps": "0xb023f02787a5894ac53612bc891216f96e007f00389f12a4b1b90ed95757274a",
+      "volatility_bps": "0x5cda250fa1e9d48ad379c71a765cefd18e94c797745e88484488907b9a9c4dd6",
+      "twap_deviation_bps": "0x9dc5eb9c57a0d796a76acac3f5a9509b8d1b4151f5706a9e26a0168b55334602"
+    }
+  }
+}
