@@ -66,5 +66,15 @@
     "defence_requests": 1,
     "ignored_signals": 0,
     "last_severity": 2
+  },
+  "vault_eth_after_refill": "0.004",
+  "vault_funding_tx": "0xec3d0eabcca377aa64cfa01b91d24b44d9e15d773ff447256707959f5f1b9a13",
+  "faucet": {
+    "base_sepolia_eth": "0.02 ETH mined with the no-login PoW faucet openfaucet.org/base-sepolia (10 proofs, 0.002 each)",
+    "lreact": "0.01 of that sent to the Reactive faucet 0x2afaFD298b23b62760711756088F75B7409f5967 request(address) -> 1.0 lREACT at 100:1"
+  },
+  "wallets": {
+    "deployer_owner_agent": "0xecB8cd3316EDeE68a48b4D731337E52e1eAADF5C",
+    "note": "testnet-only key, created 2026-11-24, kept in .env.testnet (gitignored, 0600); no mainnet funds"
   }
 }
