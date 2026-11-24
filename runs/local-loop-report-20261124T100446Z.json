@@ -1,0 +1,567 @@
+{
+  "generated_at": "20261124T100446Z",
+  "scenario": "critical",
+  "chains": {
+    "origin": {
+      "chain_id": 84532,
+      "rpc": "http://127.0.0.1:8545",
+      "block_time_s": 0.2
+    },
+    "reactive": {
+      "chain_id": 5318007,
+      "rpc": "http://127.0.0.1:9545",
+      "block_time_s": 0.5
+    }
+  },
+  "deployment": {
+    "pool": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+    "base_token": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+    "quote_token": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+    "oracle": "0x2279B7A0a67DB372996a5FaB50D91eAA73d2eBe6",
+    "proxy": "0x8A791620dd6260079BF849Dc5567aDC3F2FdC318",
+    "vault": "0x610178dA211FEF7D417bC0e6FeD39F05609AD788",
+    "reactive": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+    "harbor": "0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65",
+    "owner": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+    "agent": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+    "trader": "0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC",
+    "user": "0x90F79bf6EB2c4f870365E785982E1f101E93b906"
+  },
+  "subscriptions": [
+    {
+      "chain_id": 84532,
+      "contract": "0x2279b7a0a67db372996a5fab50d91eaa73d2ebe6",
+      "topics": [
+        52631265954419310653474200911409283377953889016199924883685977134295988431837,
+        75252825407537882320072764775003078858136410358653934749800413598252374627245,
+        75252825407537882320072764775003078858136410358653934749800413598252374627245,
+        75252825407537882320072764775003078858136410358653934749800413598252374627245
+      ]
+    }
+  ],
+  "signal_timings": {
+    "0x8470357a399efd35c850ef5bda600625bf43c6b520d86ff96586c327150d5793": {
+      "signal_mined": 1795514698.922312,
+      "react_mined": 1795514699.2276945
+    },
+    "0xf18d012ddc59d41902641ced8b982502c4e9760a31902e33878bad5c804cb7e6": {
+      "signal_mined": 1795514699.6929133,
+      "react_mined": 1795514699.7958148
+    },
+    "0x5460f5a4037a754c51ec3bcc640cc60b79cce86635a772933db2fc318cf48f84": {
+      "signal_mined": 1795514700.5191119,
+      "react_mined": 1795514700.7226026,
+      "callback_requested": 1795514700.723936,
+      "callback_mined": 1795514700.9273894
+    },
+    "0x85cef7fc269abb16331725c4bb5f1c0299131ed0aa2e88036469ebf992cb589a": {
+      "signal_mined": 1795514701.2906373,
+      "react_mined": 1795514701.7966692,
+      "callback_requested": 1795514701.7977588,
+      "callback_mined": 1795514701.8999014
+    },
+    "0x7f458a7c9a7046e8e8dd449c1de276cffef25264809a0914a4a56bebf5417081": {
+      "signal_mined": 1795514702.105112,
+      "react_mined": 1795514702.3086596
+    }
+  },
+  "callback_deliveries": [
+    {
+      "signal_id": "0x5460f5a4037a754c51ec3bcc640cc60b79cce86635a772933db2fc318cf48f84",
+      "severity": 2,
+      "recipient": "0x610178dA211FEF7D417bC0e6FeD39F05609AD788",
+      "chain_id": 84532,
+      "payload_bytes": 196,
+      "tx": "0xdd324c4f7e547fd2fe37dd034b83c2e8070e86ea53de0c929288241ac9e23953",
+      "status": "0x1",
+      "gas_used": 130430
+    },
+    {
+      "signal_id": "0x85cef7fc269abb16331725c4bb5f1c0299131ed0aa2e88036469ebf992cb589a",
+      "severity": 3,
+      "recipient": "0x610178dA211FEF7D417bC0e6FeD39F05609AD788",
+      "chain_id": 84532,
+      "payload_bytes": 196,
+      "tx": "0xfc4a7850ccbacea23b6a0ec2c5ee40ca120fbc60d73e3494d02dfb92a4997040",
+      "status": "0x1",
+      "gas_used": 88906
+    }
+  ],
+  "defence_events": [
+    {
+      "signal_id": "0x5460f5a4037a754c51ec3bcc640cc60b79cce86635a772933db2fc318cf48f84",
+      "severity": 2,
+      "risk_score_bps": 8084,
+      "reason_code": "0x5cda250fa1e9d48ad379c71a765cefd18e94c797745e88484488907b9a9c4dd6",
+      "observed_at": 1795514700,
+      "executed_at": 1795514700,
+      "funds_moved": 0,
+      "on_chain_latency_seconds": 0,
+      "tx": "0xdd324c4f7e547fd2fe37dd034b83c2e8070e86ea53de0c929288241ac9e23953",
+      "block": 72
+    },
+    {
+      "signal_id": "0x85cef7fc269abb16331725c4bb5f1c0299131ed0aa2e88036469ebf992cb589a",
+      "severity": 3,
+      "risk_score_bps": 9644,
+      "reason_code": "0x5cda250fa1e9d48ad379c71a765cefd18e94c797745e88484488907b9a9c4dd6",
+      "observed_at": 1795514701,
+      "executed_at": 1795514701,
+      "funds_moved": 1000000000000000000000,
+      "on_chain_latency_seconds": 0,
+      "tx": "0xfc4a7850ccbacea23b6a0ec2c5ee40ca120fbc60d73e3494d02dfb92a4997040",
+      "block": 77
+    }
+  ],
+  "vault_state": {
+    "safe_mode": true,
+    "liquidated": true,
+    "defence_count": 2,
+    "last_severity": 3,
+    "last_risk_score_bps": 9644,
+    "last_signal_id": "0x85cef7fc269abb16331725c4bb5f1c0299131ed0aa2e88036469ebf992cb589a",
+    "vault_balance": 0,
+    "harbor_balance": 1000000000000000000000
+  },
+  "latency": {
+    "signal_id": "0x5460f5a4037a754c51ec3bcc640cc60b79cce86635a772933db2fc318cf48f84",
+    "agent_publish_to_signal_mined_ms": 212.1,
+    "signal_mined_to_react_mined_ms": 203.5,
+    "react_mined_to_callback_mined_ms": 204.8,
+    "total_publish_to_callback_ms": 620.4,
+    "note": "agent publish time from its decision log; the chain hops from the harness clock"
+  },
+  "timeline": [
+    {
+      "name": "harness:anvil-ready",
+      "at": 0.444282740001654,
+      "epoch": 1795514686.7852523,
+      "detail": ""
+    },
+    {
+      "name": "deploy:start",
+      "at": 0.44525065700145205,
+      "epoch": 1795514686.7862186,
+      "detail": ""
+    },
+    {
+      "name": "deploy:pool-ready",
+      "at": 2.1730323120027606,
+      "epoch": 1795514688.5140002,
+      "detail": ""
+    },
+    {
+      "name": "deploy:risk-oracle",
+      "at": 2.415063841999654,
+      "epoch": 1795514688.7560318,
+      "detail": ""
+    },
+    {
+      "name": "deploy:system-contract-etched",
+      "at": 2.8664866350009106,
+      "epoch": 1795514689.2074544,
+      "detail": ""
+    },
+    {
+      "name": "deploy:reactive",
+      "at": 3.4221514430028037,
+      "epoch": 1795514689.7631195,
+      "detail": ""
+    },
+    {
+      "name": "deploy:vault",
+      "at": 3.809263719002047,
+      "epoch": 1795514690.1502316,
+      "detail": ""
+    },
+    {
+      "name": "deploy:vault-wired",
+      "at": 3.911330620001536,
+      "epoch": 1795514690.2522986,
+      "detail": ""
+    },
+    {
+      "name": "deploy:vault-funded",
+      "at": 4.420438512999681,
+      "epoch": 1795514690.7614062,
+      "detail": ""
+    },
+    {
+      "name": "harness:reactive-node-running",
+      "at": 4.831744088001869,
+      "epoch": 1795514691.1727126,
+      "detail": ""
+    },
+    {
+      "name": "agent:start",
+      "at": 4.831770141001471,
+      "epoch": 1795514691.1727371,
+      "detail": ""
+    },
+    {
+      "name": "market:warmup-done",
+      "at": 8.277391281000746,
+      "epoch": 1795514694.6183624,
+      "detail": ""
+    },
+    {
+      "name": "origin:signal-mined",
+      "at": 12.581351820001146,
+      "epoch": 1795514698.9223192,
+      "detail": "0x8470357a block 62"
+    },
+    {
+      "name": "reactive-node:react-mined",
+      "at": 12.886734957999579,
+      "epoch": 1795514699.227702,
+      "detail": "0x8470357a gas 55998"
+    },
+    {
+      "name": "origin:signal-mined",
+      "at": 13.351953871002479,
+      "epoch": 1795514699.6929212,
+      "detail": "0xf18d012d block 66"
+    },
+    {
+      "name": "reactive-node:react-mined",
+      "at": 13.454856299002131,
+      "epoch": 1795514699.7958236,
+      "detail": "0xf18d012d gas 38898"
+    },
+    {
+      "name": "origin:signal-mined",
+      "at": 14.178149113002291,
+      "epoch": 1795514700.5191164,
+      "detail": "0x5460f5a4 block 70"
+    },
+    {
+      "name": "reactive-node:react-mined",
+      "at": 14.3816403790006,
+      "epoch": 1795514700.7226074,
+      "detail": "0x5460f5a4 gas 398736"
+    },
+    {
+      "name": "reactive-node:callback-requested",
+      "at": 14.38297540900021,
+      "epoch": 1795514700.7239425,
+      "detail": "0x5460f5a4 chain 84532 gas 400000"
+    },
+    {
+      "name": "reactive-node:callback-mined",
+      "at": 14.586428983002406,
+      "epoch": 1795514700.9273963,
+      "detail": "0xdd324c4f7e547fd2fe37dd034b83c2e8070e86ea53de0c929288241ac9e23953"
+    },
+    {
+      "name": "origin:signal-mined",
+      "at": 14.949674473002233,
+      "epoch": 1795514701.2906413,
+      "detail": "0x85cef7fc block 74"
+    },
+    {
+      "name": "reactive-node:react-mined",
+      "at": 15.45570652600145,
+      "epoch": 1795514701.7966738,
+      "detail": "0x85cef7fc gas 347436"
+    },
+    {
+      "name": "reactive-node:callback-requested",
+      "at": 15.456796501999634,
+      "epoch": 1795514701.7977636,
+      "detail": "0x85cef7fc chain 84532 gas 400000"
+    },
+    {
+      "name": "reactive-node:callback-mined",
+      "at": 15.558940662001987,
+      "epoch": 1795514701.8999078,
+      "detail": "0xfc4a7850ccbacea23b6a0ec2c5ee40ca120fbc60d73e3494d02dfb92a4997040"
+    },
+    {
+      "name": "market:crash-done",
+      "at": 15.73770161200082,
+      "epoch": 1795514702.0786695,
+      "detail": ""
+    },
+    {
+      "name": "harness:defence-observed",
+      "at": 15.738099588001205,
+      "epoch": 1795514702.0790665,
+      "detail": ""
+    },
+    {
+      "name": "origin:signal-mined",
+      "at": 15.764148087000649,
+      "epoch": 1795514702.1051152,
+      "detail": "0x7f458a7c block 78"
+    },
+    {
+      "name": "reactive-node:react-mined",
+      "at": 15.967698073000065,
+      "epoch": 1795514702.3086653,
+      "detail": "0x7f458a7c gas 41700"
+    }
+  ],
+  "node_log": [
+    {
+      "event": "subscriptions-loaded",
+      "subscriptions": [
+        {
+          "chain_id": 84532,
+          "contract": "0x2279b7a0a67db372996a5fab50d91eaa73d2ebe6",
+          "topics": [
+            52631265954419310653474200911409283377953889016199924883685977134295988431837,
+            75252825407537882320072764775003078858136410358653934749800413598252374627245,
+            75252825407537882320072764775003078858136410358653934749800413598252374627245,
+            75252825407537882320072764775003078858136410358653934749800413598252374627245
+          ]
+        }
+      ]
+    },
+    {
+      "event": "react",
+      "tx": "0x5543cfffcdfeb6ffde9b5da3b9d82b3a006e5139949fb2311175a8244e93ac98",
+      "status": "0x1",
+      "gas_used": 55998,
+      "send_ms": 304.7
+    },
+    {
+      "event": "react",
+      "tx": "0xf42fdcf308e98b75342a7aa8d49a1fa35b64b677ae81f0b4880cdb774991b220",
+      "status": "0x1",
+      "gas_used": 38898,
+      "send_ms": 102.4
+    },
+    {
+      "event": "react",
+      "tx": "0xc44f3d74649c2d04cbccf5c66e970855aa83855766a58f66d747bd1bcdc0b682",
+      "status": "0x1",
+      "gas_used": 398736,
+      "send_ms": 202.9
+    },
+    {
+      "event": "react",
+      "tx": "0xc88850b46f689888f6d8b21edc7ff57cc63af19a0046d4819b819e7d8daf6581",
+      "status": "0x1",
+      "gas_used": 347436,
+      "send_ms": 505.4
+    },
+    {
+      "event": "react",
+      "tx": "0x52a891ea4e62934728249e840b9351dd690cc5d0f823dc562cc5fdcee2bb3788",
+      "status": "0x1",
+      "gas_used": 41700,
+      "send_ms": 203.1
+    }
+  ],
+  "node_errors": [],
+  "agent_decisions": [
+    {
+      "at": "2026-11-24T10:04:58.813+00:00",
+      "signal_id": "0x8470357a399efd35c850ef5bda600625bf43c6b520d86ff96586c327150d5793",
+      "severity": 1,
+      "severity_name": "WATCH",
+      "score_bps": 4456,
+      "reason": "VOLATILITY_SPIKE",
+      "observed_at": 1795514698,
+      "features": {
+        "price_drop_bps": 3394.18,
+        "ret_short_bps": -1973.14,
+        "liquidity_drop_bps": 1872.38,
+        "sell_pressure_bps": 10000.0,
+        "volatility_bps": 262.62,
+        "twap_deviation_bps": 2904.52
+      },
+      "action": "published",
+      "tx_hash": "0x9a39e8aa5c7c18b335b76d6135f322b5117742206c83fb9b2f594dd0a68aa9cc",
+      "block_number": 62,
+      "error": null,
+      "latency_ms": 103.4,
+      "explanation": {
+        "top_contributions": [
+          {
+            "feature": "volatility_bps",
+            "z_contribution": 2.0941
+          },
+          {
+            "feature": "ret_short_bps",
+            "z_contribution": 0.6936
+          },
+          {
+            "feature": "sell_pressure_bps",
+            "z_contribution": -0.3974
+          }
+        ],
+        "price": 1.975812,
+        "depth": 2434632.85
+      }
+    },
+    {
+      "at": "2026-11-24T10:04:59.536+00:00",
+      "signal_id": "0xf18d012ddc59d41902641ced8b982502c4e9760a31902e33878bad5c804cb7e6",
+      "severity": 1,
+      "severity_name": "WATCH",
+      "score_bps": 6442,
+      "reason": "VOLATILITY_SPIKE",
+      "observed_at": 1795514699,
+      "features": {
+        "price_drop_bps": 4262.44,
+        "ret_short_bps": -2298.92,
+        "liquidity_drop_bps": 2425.33,
+        "sell_pressure_bps": 10000.0,
+        "volatility_bps": 309.96,
+        "twap_deviation_bps": 3655.12
+      },
+      "action": "published",
+      "tx_hash": "0x8ed7f17d417d83f76af37f504e1511b48f719d4190ed0a3437b4c0f9c0b30a05",
+      "block_number": 66,
+      "error": null,
+      "latency_ms": 204.9,
+      "explanation": {
+        "top_contributions": [
+          {
+            "feature": "volatility_bps",
+            "z_contribution": 2.9675
+          },
+          {
+            "feature": "ret_short_bps",
+            "z_contribution": 0.8336
+          },
+          {
+            "feature": "sell_pressure_bps",
+            "z_contribution": -0.3974
+          }
+        ],
+        "price": 1.716114,
+        "depth": 2268996.13
+      }
+    },
+    {
+      "at": "2026-11-24T10:05:00.307+00:00",
+      "signal_id": "0x5460f5a4037a754c51ec3bcc640cc60b79cce86635a772933db2fc318cf48f84",
+      "severity": 2,
+      "severity_name": "DEFEND",
+      "score_bps": 8084,
+      "reason": "VOLATILITY_SPIKE",
+      "observed_at": 1795514700,
+      "features": {
+        "price_drop_bps": 5117.2,
+        "ret_short_bps": -2608.34,
+        "liquidity_drop_bps": 3012.3,
+        "sell_pressure_bps": 10000.0,
+        "volatility_bps": 359.77,
+        "twap_deviation_bps": 4447.09
+      },
+      "action": "published",
+      "tx_hash": "0xf36c3d58110d865d8a2f61f6f1cc745ad3021e810c72d5de96786fecf9c92099",
+      "block_number": 70,
+      "error": null,
+      "latency_ms": 204.0,
+      "explanation": {
+        "top_contributions": [
+          {
+            "feature": "volatility_bps",
+            "z_contribution": 3.8866
+          },
+          {
+            "feature": "ret_short_bps",
+            "z_contribution": 0.9666
+          },
+          {
+            "feature": "liquidity_drop_bps",
+            "z_contribution": -0.5024
+          }
+        ],
+        "price": 1.460453,
+        "depth": 2093169.86
+      }
+    },
+    {
+      "at": "2026-11-24T10:05:01.130+00:00",
+      "signal_id": "0x85cef7fc269abb16331725c4bb5f1c0299131ed0aa2e88036469ebf992cb589a",
+      "severity": 3,
+      "severity_name": "CRITICAL",
+      "score_bps": 9644,
+      "reason": "VOLATILITY_SPIKE",
+      "observed_at": 1795514701,
+      "features": {
+        "price_drop_bps": 6670.87,
+        "ret_short_bps": -3181.93,
+        "liquidity_drop_bps": 4230.14,
+        "sell_pressure_bps": 10000.0,
+        "volatility_bps": 468.85,
+        "twap_deviation_bps": 6088.89
+      },
+      "action": "published",
+      "tx_hash": "0x7bf76be1e8c91668a2c1ed490bf94b15686810b8f056ea125bd7f919e89a8683",
+      "block_number": 74,
+      "error": null,
+      "latency_ms": 204.2,
+      "explanation": {
+        "top_contributions": [
+          {
+            "feature": "volatility_bps",
+            "z_contribution": 5.8989
+          },
+          {
+            "feature": "ret_short_bps",
+            "z_contribution": 1.2131
+          },
+          {
+            "feature": "liquidity_drop_bps",
+            "z_contribution": -0.7776
+          }
+        ],
+        "price": 0.995747,
+        "depth": 1728364.06
+      }
+    },
+    {
+      "at": "2026-11-24T10:05:01.902+00:00",
+      "signal_id": "0x7f458a7c9a7046e8e8dd449c1de276cffef25264809a0914a4a56bebf5417081",
+      "severity": 3,
+      "severity_name": "CRITICAL",
+      "score_bps": 9839,
+      "reason": "VOLATILITY_SPIKE",
+      "observed_at": 1795514701,
+      "features": {
+        "price_drop_bps": 7331.76,
+        "ret_short_bps": -3447.86,
+        "liquidity_drop_bps": 4834.5,
+        "sell_pressure_bps": 10000.0,
+        "volatility_bps": 517.28,
+        "twap_deviation_bps": 6750.31
+      },
+      "action": "published",
+      "tx_hash": "0x05904a9a133dc664a88711925917e6207bc4a1c19ee95b207e7b51ce09948ed6",
+      "block_number": 78,
+      "error": null,
+      "latency_ms": 203.8,
+      "explanation": {
+        "top_contributions": [
+          {
+            "feature": "volatility_bps",
+            "z_contribution": 6.7925
+          },
+          {
+            "feature": "ret_short_bps",
+            "z_contribution": 1.3273
+          },
+          {
+            "feature": "liquidity_drop_bps",
+            "z_contribution": -0.9142
+          }
+        ],
+        "price": 0.798073,
+        "depth": 1547326.82
+      }
+    }
+  ],
+  "agent_output": [
+    "[agent] WATCH    score= 4456bps reason=VOLATILITY_SPIKE action=published tx=0x9a39e8aa5c7c18b335b76d6135f322b5117742206c83fb9b2f594dd0a68aa9cc",
+    "[agent] WATCH    score= 6442bps reason=VOLATILITY_SPIKE action=published tx=0x8ed7f17d417d83f76af37f504e1511b48f719d4190ed0a3437b4c0f9c0b30a05",
+    "[agent] DEFEND   score= 8084bps reason=VOLATILITY_SPIKE action=published tx=0xf36c3d58110d865d8a2f61f6f1cc745ad3021e810c72d5de96786fecf9c92099",
+    "[agent] CRITICAL score= 9644bps reason=VOLATILITY_SPIKE action=published tx=0x7bf76be1e8c91668a2c1ed490bf94b15686810b8f056ea125bd7f919e89a8683",
+    "[agent] CRITICAL score= 9839bps reason=VOLATILITY_SPIKE action=published tx=0x05904a9a133dc664a88711925917e6207bc4a1c19ee95b207e7b51ce09948ed6"
+  ],
+  "agent_log": "runs/agent-decisions-20261124T100446Z.jsonl"
+}

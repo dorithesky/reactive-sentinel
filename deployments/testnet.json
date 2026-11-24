@@ -1,0 +1,70 @@
+{
+  "chain_base_sepolia": 84532,
+  "chain_reactive_lasna": 5318007,
+  "risk_oracle": "0xf833A74eEf68D47ccc09aeC1c26a947cc2Ee0bf6",
+  "sentinel_reactive": "0xDE6EF66DAD15C6071be1eFA39F08b3b89eb82E43",
+  "sentinel_vault": "0xbf0981de544CF16E1D46e5C646648CFD2E1132Ad",
+  "vault_asset": "0xDE6EF66DAD15C6071be1eFA39F08b3b89eb82E43",
+  "tx_origin": "0xdfcdb38d5b4eaea7d5e91c3b1c01568e6e97904f6c41130fbe93670f3c8d64ce",
+  "tx_reactive": "0xbb24449210130ac1a192c2cf7269fc020d76a944b0b605158502f0ec7d21386d",
+  "tx_callback": "0xb9b65c5448d589a8b8f5f9ae82f62ca70407f15d73ef3c2ac1ef4a6fcb63f465",
+  "explorer": {
+    "risk_oracle": "https://sepolia.basescan.org/address/0xf833A74eEf68D47ccc09aeC1c26a947cc2Ee0bf6",
+    "sentinel_reactive": "https://lasna.reactscan.net/address/0xDE6EF66DAD15C6071be1eFA39F08b3b89eb82E43",
+    "sentinel_vault": "https://sepolia.basescan.org/address/0xbf0981de544CF16E1D46e5C646648CFD2E1132Ad",
+    "tx_origin": "https://sepolia.basescan.org/tx/0xdfcdb38d5b4eaea7d5e91c3b1c01568e6e97904f6c41130fbe93670f3c8d64ce",
+    "tx_reactive": "https://lasna.reactscan.net/tx/0xbb24449210130ac1a192c2cf7269fc020d76a944b0b605158502f0ec7d21386d",
+    "tx_callback": "https://sepolia.basescan.org/tx/0xb9b65c5448d589a8b8f5f9ae82f62ca70407f15d73ef3c2ac1ef4a6fcb63f465"
+  },
+  "loop": {
+    "signal": {
+      "severity": 2,
+      "severity_name": "DEFEND",
+      "risk_score_bps": 7200,
+      "reason_code": "SMOKE_TEST"
+    },
+    "origin": {
+      "tx": "0xdfcdb38d5b4eaea7d5e91c3b1c01568e6e97904f6c41130fbe93670f3c8d64ce",
+      "block": 62968843,
+      "timestamp": "2026-11-24T10:20:37+00:00",
+      "epoch": 1795515637,
+      "gas_used": 233199,
+      "status": 1
+    },
+    "reactive": {
+      "tx": "0xbb24449210130ac1a192c2cf7269fc020d76a944b0b605158502f0ec7d21386d",
+      "block": 9129685,
+      "timestamp": "2026-11-24T10:20:37+00:00",
+      "epoch": 1795515637,
+      "gas_used": 160796,
+      "status": 1
+    },
+    "callback": {
+      "tx": "0xb9b65c5448d589a8b8f5f9ae82f62ca70407f15d73ef3c2ac1ef4a6fcb63f465",
+      "block": 62968850,
+      "timestamp": "2026-11-24T10:20:38+00:00",
+      "epoch": 1795515638,
+      "gas_used": 184077,
+      "status": 1
+    },
+    "origin_to_reactive_s": 0,
+    "reactive_to_callback_s": 1,
+    "origin_to_callback_s": 1,
+    "note": "block timestamps are second-resolution; the agent's observedAt (0x6b0564f0) to executedAt (0x6b0564f6) is 6 s, of which ~5 s is the origin transaction waiting for its block",
+    "observed_to_executed_s": 6
+  },
+  "vault_after": {
+    "safe_mode": true,
+    "liquidated": false,
+    "defence_count": 1,
+    "last_severity": 2,
+    "last_risk_score_bps": 7200,
+    "total_deposits_wei": "1000000000000000000000"
+  },
+  "reactive_after": {
+    "vault": "0xbf0981de544CF16E1D46e5C646648CFD2E1132Ad",
+    "defence_requests": 1,
+    "ignored_signals": 0,
+    "last_severity": 2
+  }
+}

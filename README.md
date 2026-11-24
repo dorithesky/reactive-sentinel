@@ -46,9 +46,10 @@ The demo scenario, which `tools/local_loop.py` reproduces on two real EVM chains
 | **total decision → vault updated** | **378 ms** | ~760 ms |
 
 Source: `runs/local-loop-report-20261124T095539Z.json` and `runs/local-loop-report-20261124T095652Z.json`,
-both committed with this repository. A second run measured 170 / 204 / 205 ms = **578 ms**: the spread between
-runs is block alignment — whether the reactive transaction catches the next block or the one after it — not a
-change in the system. Measured how:
+both committed with this repository. A second run measured 170 / 204 / 205 ms = **578 ms**, and a third
+212 / 204 / 205 ms = **620 ms** (`runs/local-loop-report-20261124T100446Z.json`): the spread between runs is block
+alignment — whether the reactive transaction catches the next block or the one after it — not a change in the
+system. Measured how:
 the harness stamps every stage with `time.time()` on the machine that drives both chains; per-signal timestamps
 live in `signal_timings`, keyed by the signal id that appears in all three transactions. The on-chain
 `DefenseExecuted` event additionally carries `observedAt`/`executedAt` (second resolution) so the figure is
@@ -57,7 +58,8 @@ reproducible from chain data alone.
 **Honest caveat:** the local nodes have 200 ms (origin) and 500 ms (Lasna) block times and zero network latency
 between them, so this is a *lower bound*. A production loop adds the validator set's own finality, the signer's
 queue, and real RPC latency; the reactive-side block time for Lasna Omni is ~1 s. Quote a range, not a single
-number: 378-578 ms locally, and expect more on public networks.
+number: 378–620 ms locally, and expect more on public networks (the live testnet loop above measured 1 s
+cross-chain, 6 s from the agent's observation).
 
 ## Why the AI is part of the running system
 
@@ -164,10 +166,39 @@ Offline, chain-free, to see a decision on its own:
 python -m agent.sentinel_agent --feed synthetic --dry-run --once
 ```
 
+## Live on the public testnets
+
+Deployed 2026-11-24 with a fresh testnet-only key (no mainnet funds anywhere near it). Every value below was read
+back from the chain and is also stored in [`deployments/testnet.json`](deployments/testnet.json).
+
+| Contract | Network | Address |
+|---|---|---|
+| `RiskOracle` | Base Sepolia (84532) | [`0xf833A74eEf68D47ccc09aeC1c26a947cc2Ee0bf6`](https://sepolia.basescan.org/address/0xf833A74eEf68D47ccc09aeC1c26a947cc2Ee0bf6) |
+| `SentinelReactive` | Reactive Lasna (5318007) | [`0xDE6EF66DAD15C6071be1eFA39F08b3b89eb82E43`](https://lasna.reactscan.net/address/0xDE6EF66DAD15C6071be1eFA39F08b3b89eb82E43) |
+| `SentinelVault` | Base Sepolia | [`0xbf0981de544CF16E1D46e5C646648CFD2E1132Ad`](https://sepolia.basescan.org/address/0xbf0981de544CF16E1D46e5C646648CFD2E1132Ad) |
+
+One signal through the real Reactive Network (severity 2 / 7,200 bps, the vault holding 1,000 tUSD):
+
+| # | Step | Transaction |
+|---|---|---|
+| 1 | `RiskSignal` published by the agent on Base Sepolia (block 62968843, gas 233,199) | [`0xdfcdb38d…8d64ce`](https://sepolia.basescan.org/tx/0xdfcdb38d5b4eaea7d5e91c3b1c01568e6e97904f6c41130fbe93670f3c8d64ce) |
+| 2 | `react()` → `requestCallbackV_1_0` on Lasna (block 9129685, gas 160,796) | [`0xbb244492…1386d`](https://lasna.reactscan.net/tx/0xbb24449210130ac1a192c2cf7269fc020d76a944b0b605158502f0ec7d21386d) |
+| 3 | callback through the proxy → `safeMode = true` (block 62968850, gas 184,077) | [`0xb9b65c54…63f465`](https://sepolia.basescan.org/tx/0xb9b65c5448d589a8b8f5f9ae82f62ca70407f15d73ef3c2ac1ef4a6fcb63f465) |
+
+State after the loop: vault `safeMode()=true`, `defenceCount()=1`, `lastRiskScoreBps()=7200`, deposits untouched;
+reactive contract `defenceRequests()=1`, `ignoredSignals()=0`.
+
+**What the public testnets measured, honestly.** Block timestamps are second-resolution, so the cross-chain part
+reads as 1 s (origin block 10:20:37 → callback block 10:20:38 UTC). The agent's own `observedAt` (10:20:32) to the
+vault's `executedAt` (10:20:38) is **6 s**, of which about 5 s is the origin transaction waiting for its Base
+Sepolia block through a public RPC. That is the number to quote for this deployment; the 378–620 ms below is the
+local harness's floor with no network or signer queue in the path.
+
 ## Deploying to the testnets
 
 Base Sepolia is the origin **and** destination; Reactive Lasna hosts the reactive contract. Full runbook in
-[`docs/DEPLOY.md`](docs/DEPLOY.md), short version:
+[`docs/DEPLOY.md`](docs/DEPLOY.md); `bash tools/deploy_testnet.sh` runs the whole sequence and writes
+`deployments/testnet.json` (it resumes where it stopped if a faucet wait is interrupted). Short version:
 
 1. **Base Sepolia ETH** — any Sepolia faucet (Alchemy, QuickNode, Coinbase, `faucet.quicknode.com/base/sepolia`).
 2. **lREACT on Lasna** — send Base Sepolia ETH to the faucet contract `0x2afaFD298b23b62760711756088F75B7409f5967`
@@ -186,11 +217,11 @@ Base Sepolia is the origin **and** destination; Reactive Lasna hosts the reactiv
 | Requirement | Where |
 |---|---|
 | Reactive contract that really does the work | `src/SentinelReactive.sol` — subscription, policy, callback request |
-| Origin event → callback transaction hashes | produced by `tools/local_loop.py` locally; testnet runbook in `docs/DEPLOY.md` |
-| Deployed contract addresses | printed by the deploy scripts, or the harness report |
+| Origin event → callback transaction hashes | live above, and in `deployments/testnet.json`; reproduced locally by `tools/local_loop.py` |
+| Deployed contract addresses | live above (`deployments/testnet.json`), printed by the deploy scripts |
 | Full-loop latency and how it was measured | table above, `docs/LATENCY.md`, `runs/local-loop-report-*.json` |
 | Public repo + README that a stranger can follow | this file + `docs/` |
-| Demo video ≤ 3 min | script in `docs/DEMO.md` |
+| Demo video ≤ 3 min | script in `docs/DEMO.md`, rendered by `tools/build_demo.py`, attached to the GitHub release |
 
 ## What is deliberately not here
 

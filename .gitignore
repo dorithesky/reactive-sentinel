@@ -39,3 +39,7 @@ runs/*.log
 .idea/
 .vscode/
 .DS_Store
+
+# Render scratch (video build, deploy logs)
+build/
+deployments/state.json
