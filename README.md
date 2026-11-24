@@ -2,6 +2,9 @@
 
 **Reactive Omni Buildathon · track: Reactive Meets AI** (the latency work also serves *Every Second Counts*)
 
+[**Demo video (2:28)**](https://github.com/dorithesky/reactive-sentinel/releases/download/demo-v1/demo.mp4) ·
+[Live on Base Sepolia + Lasna](#live-on-the-public-testnets) · 48 Foundry + 21 Python tests passing
+
 A cross-chain defence system where a **trained risk model** — not a rule, not a prompt — judges whether a pool is
 breaking, publishes that judgement on Base Sepolia as an event, and a **Reactive contract on Lasna** turns it into
 an on-chain callback that puts the vault into a defensive state. No keeper, no bot, no human in the loop. Once the
@@ -221,7 +224,7 @@ Base Sepolia is the origin **and** destination; Reactive Lasna hosts the reactiv
 | Deployed contract addresses | live above (`deployments/testnet.json`), printed by the deploy scripts |
 | Full-loop latency and how it was measured | table above, `docs/LATENCY.md`, `runs/local-loop-report-*.json` |
 | Public repo + README that a stranger can follow | this file + `docs/` |
-| Demo video ≤ 3 min | script in `docs/DEMO.md`, rendered by `tools/build_demo.py`, attached to the GitHub release |
+| Demo video ≤ 3 min | [release asset `demo.mp4`](https://github.com/dorithesky/reactive-sentinel/releases/download/demo-v1/demo.mp4) (2:28); script in `docs/DEMO.md`, rendered by `tools/build_demo.py` |
 
 ## What is deliberately not here
 
