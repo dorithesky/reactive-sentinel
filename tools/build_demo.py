@@ -851,8 +851,10 @@ def build_audio(clips: list[Path]) -> tuple[Path, list[float]]:
     for i, (wav, _, _) in enumerate(parts):
         inputs += ["-i", str(wav)]
     chains = []
-    for i, (wav, lead, _) in enumerate(parts):
-        chains.append(f"[{i + 1}:a]adelay={int(lead * 1000)}|{int(lead * 1000)}[a{i}]")
+    for i in range(len(parts)):
+        # absolute start of this scene on the finished track, not its own lead-in
+        ms = int(round(starts[i] * 1000))
+        chains.append(f"[{i + 1}:a]adelay={ms}|{ms}[a{i}]")
     mix_in = "[0:a]" + "".join(f"[a{i}]" for i in range(len(parts)))
     filters = ";".join(chains) + f";{mix_in}amix=inputs={len(parts) + 1}:normalize=0[aout]"
     subprocess.run(
